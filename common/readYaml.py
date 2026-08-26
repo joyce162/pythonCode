@@ -1,16 +1,5 @@
-import json
-
 import yaml
 import os
-
-
-def get_testcase_from_yaml(file):
-    try:
-        with open(file, 'r', encoding='utf-8') as f:
-            testcase = yaml.safe_load(f)
-            return testcase
-    except Exception as e:
-        print(e)
 
 
 class ReadYaml(object):
@@ -18,8 +7,16 @@ class ReadYaml(object):
         if filePath is not None:
             self.filePath = filePath
 
+    def get_testcase_from_yaml(self,file):
+        try:
+            with open(file, 'r', encoding='utf-8') as f:
+                testcase = yaml.safe_load(f)
+                return testcase
+        except Exception as e:
+            print(e)
+
     def write_Yaml_data(self,writeValue):
-        self.filePath = r'extract.yml'
+        self.filePath = r'../extract.yml'
         if not os.path.exists(self.filePath):
             os.system(self.filePath)
 
@@ -32,24 +29,24 @@ class ReadYaml(object):
             print(e)
 
     def get_extract_data(self,nodeName):
-        if os.path.exists('extract.yml'):
+        if os.path.exists('../extract.yml'):
             pass
         else:
-            f = open('extract.yml', 'w', encoding='utf-8')
+            f = open('../extract.yml', 'w', encoding='utf-8')
             f.close()
-        with open('extract.yml', 'r', encoding='utf-8') as f:
+        with open('../extract.yml', 'r', encoding='utf-8') as f:
             extract_data = yaml.safe_load(f)
             return extract_data[nodeName]
 
 if __name__ == '__main__':
-    testcase = get_testcase_from_yaml('loginTestcae.yml')
+    testcase = ReadYaml().get_testcase_from_yaml('../testcase/Login/loginTestcae.yml')
     case = testcase[0]
     url = "http://127.0.0.1:8787"+case['baseInfo']['url']
     method = case['baseInfo']['method']
     header = case['baseInfo']['header']
     data = case['testcase'][0]['data']
 
-    from sendRequests import SendRequests
+    from common.sendRequests import SendRequests
     sendRequests = SendRequests()
     res = sendRequests.run_send(url,data,header,method)
 

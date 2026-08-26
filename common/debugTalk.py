@@ -1,14 +1,13 @@
 import random
 
 from readYaml import ReadYaml
-class DebugTalk:
+class DebugTalk(object):
     def __init__(self):
         self.read = ReadYaml()
 
     def get_extract_data(self,nodeName,randoms=None):
         data = self.read.get_extract_data(nodeName)
-        print(data)
-        print(type(data))
+
         if randoms is None:
             return data
         else:
