@@ -7,14 +7,14 @@ class SendRequests(object):
 
     def send_get(self, url, params, headers):
         res = None
-        if headers is None:
+        if headers == 'None':
             res = requests.get(url, params, verify=False)
         else:
             res = requests.get(url=url, params=params, headers=headers, verify=False)
         return res
 
     def send_post(self, url, data, headers):
-        if headers is None:
+        if headers == 'None':
             res = requests.post(url, data, verify=False)
         else:
             res = requests.get(url, data, headers=headers, verify=False)
