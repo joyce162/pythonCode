@@ -1,5 +1,6 @@
 import yaml
 import os
+from conf.setting import FILE_PATH
 
 
 class ReadYaml(object):
@@ -16,7 +17,7 @@ class ReadYaml(object):
             print(e)
 
     def write_Yaml_data(self,writeValue):
-        self.filePath = r'../extract.yml'
+        self.filePath = FILE_PATH['extract']
         if not os.path.exists(self.filePath):
             os.system(self.filePath)
 
@@ -29,12 +30,12 @@ class ReadYaml(object):
             print(e)
 
     def get_extract_data(self,nodeName):
-        if os.path.exists('../extract.yml'):
+        if os.path.exists(FILE_PATH['extract']):
             pass
         else:
-            f = open('../extract.yml', 'w', encoding='utf-8')
+            f = open(FILE_PATH['extract'], 'w', encoding='utf-8')
             f.close()
-        with open('../extract.yml', 'r', encoding='utf-8') as f:
+        with open(FILE_PATH['extract'], 'r', encoding='utf-8') as f:
             extract_data = yaml.safe_load(f)
             return extract_data[nodeName]
 
