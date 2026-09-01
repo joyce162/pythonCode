@@ -1,4 +1,5 @@
 import pytest
+import allure
 from common.readYaml import ReadYaml
 from common.recordLog import log
 class TestLogin(object):
@@ -24,7 +25,8 @@ class TestLogin(object):
         print('登录02')
 
 class TestLogin02(object):
-    @pytest.mark.parametrize('params', ReadYaml().get_testcase_from_yaml('./testcase/Login/loginTestcase.yml'))
+
+   @pytest.mark.parametrize('params', ReadYaml().get_testcase_from_yaml('./testcase/Login/loginTestcase.yml'))
     def test_login_04(self,params):
         print(params)
         print(type(params))
