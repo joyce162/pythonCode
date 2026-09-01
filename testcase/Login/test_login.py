@@ -24,7 +24,7 @@ class TestLogin(object):
         print('登录02')
 
 class TestLogin02(object):
-    @pytest.mark.parametrize('params', ReadYaml().get_testcase_from_yaml('./testcase/Login/loginTestcae.yml'))
+    @pytest.mark.parametrize('params', ReadYaml().get_testcase_from_yaml('./testcase/Login/loginTestcase.yml'))
     def test_login_04(self,params):
         print(params)
         print(type(params))

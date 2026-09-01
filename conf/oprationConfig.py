@@ -1,7 +1,7 @@
 import configparser
 from conf.setting import FILE_PATH
 
-class oprationConfig:
+class OprationConfig:
     def __init__(self, filePath=None):
         if filePath is None:
             self.__filePath = FILE_PATH['conf']
@@ -16,4 +16,7 @@ class oprationConfig:
     def get_section_for_data(self,section,option):
         data = self.config.get(section,option)
         return data
+
+    def get_option_from_env(self,option):
+        return self.get_section_for_data('API_ENV',option)
 

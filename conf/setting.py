@@ -10,7 +10,7 @@ STREAM_LOG_LEVEL = logging.DEBUG
 
 FILE_PATH = {
     'extract': os.path.join(DIR_PATH, 'extract.yml'),
-    'config': os.path.join(DIR_PATH, 'conf',''),
+    'conf': os.path.join(DIR_PATH, 'conf','conf.ini'),
     'log': os.path.join(DIR_PATH, 'log')
 }
 

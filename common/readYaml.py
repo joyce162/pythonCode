@@ -40,7 +40,7 @@ class ReadYaml(object):
             return extract_data[nodeName]
 
 if __name__ == '__main__':
-    testcase = ReadYaml().get_testcase_from_yaml('../testcase/Login/loginTestcae.yml')
+    testcase = ReadYaml().get_testcase_from_yaml('../testcase/Login/loginTestcase.yml')
     case = testcase[0]
     url = "http://127.0.0.1:8787"+case['baseInfo']['url']
     method = case['baseInfo']['method']

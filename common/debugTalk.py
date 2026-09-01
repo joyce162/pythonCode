@@ -1,6 +1,6 @@
 import random
 
-from readYaml import ReadYaml
+from common.readYaml import ReadYaml
 class DebugTalk(object):
     def __init__(self):
         self.read = ReadYaml()
