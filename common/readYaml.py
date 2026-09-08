@@ -39,6 +39,10 @@ class ReadYaml(object):
             extract_data = yaml.safe_load(f)
             return extract_data[nodeName]
 
+    def clear_extract_yml(self):
+        with open(FILE_PATH['extract'], 'w', encoding='utf-8') as f:
+            f.truncate()
+
 if __name__ == '__main__':
     testcase = ReadYaml().get_testcase_from_yaml('../testcase/Login/loginTestcase.yml')
     case = testcase[0]

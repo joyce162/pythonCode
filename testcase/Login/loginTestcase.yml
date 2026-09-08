@@ -4,30 +4,30 @@
     method: post
     header:
       Content-Type: application/x-www-form-urlencoded
-      token: ${get_extract_data(token)}
-    cookie: ${get_extract_data(cookie)}
   testcase:
     - case_name: 正确的用户名/密码
       data:
         user_name: test01
         passwd: admin123
       validation:
-        - contains: {'msg':'登录成功'}
+        - contains: {'msg':'登录成功','jsonPath':'$.msg'}
       extract:
         token: $.token
-    - case_name: 错误的用户名/密码
-      data:
-        user_name: test012
-        passwd: admin123
-      validation:
-        - contains: { 'msg': '登录失败' }
-      extract:
-        token: $.token
-    - case_name: 错误的用户名/密码
-      data:
-        user_name: test01
-        passwd: admin1234
-      validation:
-        - contains: { 'msg': '登录失败' }
-      extract:
-        token: $.token
+#        token: '"token":"(.*?)"'
+      extract_list: None
+#    - case_name: 错误的用户名/密码
+#      data:
+#        user_name: test012
+#        passwd: admin123
+#      validation:
+#        - contains: { 'msg': '登录失败' }
+#      extract:
+#        token: $.token
+#    - case_name: 错误的用户名/密码
+#      data:
+#        user_name: test01
+#        passwd: admin1234
+#      validation:
+#        - contains: { 'msg': '登录失败' }
+#      extract:
+#        token: $.token

@@ -1,3 +1,4 @@
+import pytest
 import requests
 from common.recordLog import log
 from common.readYaml import ReadYaml
@@ -44,28 +45,32 @@ class SendRequests(object):
             log.info('result: %s' % result.text if result.text else result)
         except requests.exceptions.ConnectionError:
             log.error('连接异常')
+            pytest.fail('ConnectionError')
         except requests.exceptions.HTTPError:
             log.error('Http异常')
+            pytest.fail('HTTPError')
         except requests.exceptions.RequestException as e:
             log.error(e)
+            pytest.fail('RequestException')
         return result
 
-    def run_main(self, case_name, url, headers, method, cookie=None, filename=None, verify=False, **kwargs):
+    def run_main(self, case_name, url, headers, method, cookies=None, files=None, verify=False, **kwargs):
+
+        log.info('开始调用接口！')
 
         log.info(f'用例名称：{case_name}')
         log.info(f'用例url：{url}')
         log.info(f'用例headers：{headers}')
         log.info(f'用例method：{method}')
-        log.info(f'用例cookie：{cookie}')
+        log.info(f'用例cookie：{cookies}')
         log.info(f'用例参数：{kwargs}')
 
         res = self.send_request(
-            case_name=case_name,
             url=url,
             headers=headers,
             method=method,
-            cookie=cookie,
-            filename=filename,
+            cookies=cookies,
+            files=files,
             verify=False,
             **kwargs)
 

@@ -1,5 +1,2 @@
-Token: 54cAe8861E40c96AeC54Ff1E14B2c
-ProductId:
-  - '123'
-  - '456'
-  - '789'
+access_token_cookie: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJmcmVzaCI6ZmFsc2UsImlhdCI6MTc4ODg0Nzc1MSwianRpIjoiMzJiOTljMWQtYjdiOS00ODliLWFiZmUtNDI0Y2EyNGM3YmI5IiwidHlwZSI6ImFjY2VzcyIsInN1YiI6ImV4YW1wbGVfdXNlciIsIm5iZiI6MTc4ODg0Nzc1MSwiZXhwIjoxNzg4ODQ4NjUxfQ.cviMdsYlkDcu6zn3Yu0yX5xT001Ibgrb_sPrKDCRXpE
+token: 6Cd2b084BF836c8dDb90b4B9EADCA

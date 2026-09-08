@@ -15,3 +15,4 @@ FILE_PATH = {
 }
 
 print(FILE_PATH['extract'])
+print(DIR_PATH)

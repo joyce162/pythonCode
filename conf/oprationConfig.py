@@ -20,3 +20,5 @@ class OprationConfig:
     def get_option_from_env(self,option):
         return self.get_section_for_data('API_ENV',option)
 
+    def get_option_from_database(self,option):
+        return self.get_section_for_data('MYSQL',option)
