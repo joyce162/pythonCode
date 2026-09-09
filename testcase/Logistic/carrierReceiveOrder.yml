@@ -1,0 +1,13 @@
+- baseInfo:
+    api_name: 物流公司接单
+    url: /api/order/pc/order/trans/receive
+    method: Post
+    header:
+      Content-Type: application/json;charset=UTF-8
+    cookie: ${get_extract_data(cookie)}
+  testcase:
+    - case_name: 物流公司接单
+      json:
+        orderId: ${get_extract_data(orderId)}
+      validation:
+        - contains: {'message':'操作成功','jsonPath':'$.message'}

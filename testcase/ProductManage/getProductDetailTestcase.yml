@@ -8,10 +8,10 @@
   testcase:
     - case_name: 获取商品详情
       json:
-        pro_id: ${get_extract_data(goodsId,0)}
+        pro_id: ${get_extract_data_list(goodsId,0)}
         page: 1
         size: 20
       validation:
-        - contains: {'error_code':'0000'}
+        - contains: {'error_code':'0000','jsonPath':'$.error_code'}
 #      extract_list:
 #        goodsId: $.goodsList[*].goodsId

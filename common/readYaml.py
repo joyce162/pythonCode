@@ -12,7 +12,17 @@ class ReadYaml(object):
         try:
             with open(file, 'r', encoding='utf-8') as f:
                 testcase = yaml.safe_load(f)
-                return testcase
+                cases = testcase[0]['testcase']
+                baseInfo = testcase[0]['baseInfo']
+
+                if len(cases) >= 1:
+                    result_list = []
+                    for case in cases:
+                        param = [baseInfo,case]
+                        result_list.append(param)
+                    return result_list
+                else:
+                    return testcase
         except Exception as e:
             print(e)
 
@@ -45,15 +55,15 @@ class ReadYaml(object):
 
 if __name__ == '__main__':
     testcase = ReadYaml().get_testcase_from_yaml('../testcase/Login/loginTestcase.yml')
-    case = testcase[0]
-    url = "http://127.0.0.1:8787"+case['baseInfo']['url']
-    method = case['baseInfo']['method']
-    header = case['baseInfo']['header']
-    data = case['testcase'][0]['data']
-
-    from common.sendRequests import SendRequests
-    sendRequests = SendRequests()
-    res = sendRequests.run_send(url,data,header,method)
+    # case = testcase[0]
+    # url = "http://127.0.0.1:8787"+case['baseInfo']['url']
+    # method = case['baseInfo']['method']
+    # header = case['baseInfo']['header']
+    # data = case['testcase'][0]['data']
+    #
+    # from common.sendRequests import SendRequests
+    # sendRequests = SendRequests()
+    # res = sendRequests.run_send(url,data,header,method)
 
     # writeValue = {}
     # writeValue['Token'] = res.json().get('token')

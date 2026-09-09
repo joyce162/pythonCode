@@ -36,10 +36,16 @@ from base.apiUtils import BaseRequestUtil
 class TestLogin02(object):
    case_info = ReadYaml().get_testcase_from_yaml('./testcase/Login/loginTestcase.yml')
 
-   @pytest.mark.parametrize('params', case_info)
+   # @pytest.mark.parametrize('params', case_info)
+   # @allure.story('正确的用户名和密码')
+   # def test_login_04(self,params):
+   #      print(params)
+   #      print('params',type(params))
+   #      BaseRequestUtil().specification_yaml(params)
+
+   @pytest.mark.parametrize('baseInfo,testcase', case_info)
    @allure.story('正确的用户名和密码')
-   def test_login_04(self,params):
-        print(params)
-        print('params',type(params))
-        BaseRequestUtil().specification_yaml(params)
+   def test_login_05(self, baseInfo,testcase):
+       allure.dynamic.title(testcase['case_name'])
+       BaseRequestUtil().specification_yaml(baseInfo,testcase)
 

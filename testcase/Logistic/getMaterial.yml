@@ -1,0 +1,13 @@
+- baseInfo:
+    api_name: 获取商品详情
+    url: /api/order/customer/orderPlan/getMaterial
+    method: Post
+    header:
+      Content-Type: application/json;charset=UTF-8
+    cookie: ${get_extract_data(cookie)}
+  testcase:
+    - case_name: 获取商品详情
+      validation:
+        - contains: {'message':'操作成功','jsonPath':'$.message'}
+      extract_list:
+        material: $.material[*]

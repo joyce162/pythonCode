@@ -41,7 +41,7 @@ class SendRequests(object):
             if set_cookie:
                 cookie['cookie'] = set_cookie
                 log.info(f'cookie: {set_cookie}')
-                self.read.write_Yaml_data(set_cookie)
+                self.read.write_Yaml_data(cookie)
             log.info('result: %s' % result.text if result.text else result)
         except requests.exceptions.ConnectionError:
             log.error('连接异常')

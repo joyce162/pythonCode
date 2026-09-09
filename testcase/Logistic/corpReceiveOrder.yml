@@ -1,0 +1,13 @@
+- baseInfo:
+    api_name: 集团接收货主订单
+    url: /api/order/pc/order/master/receive
+    method: Post
+    header:
+      Content-Type: application/json;charset=UTF-8
+    cookie: ${get_extract_data(cookie)}
+  testcase:
+    - case_name: 集团接收货主订单
+      json:
+        orderId: ${get_extract_data(orderId)}
+      validation:
+        - contains: {'message':'操作成功','jsonPath':'$.message'}

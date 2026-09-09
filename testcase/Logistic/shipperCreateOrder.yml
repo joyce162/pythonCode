@@ -1,0 +1,34 @@
+- baseInfo:
+    api_name: 货主（托运人）下订单
+    url: /api/order/customer/orderPlan/create
+    method: Post
+    header:
+      Content-Type: application/json;charset=UTF-8
+    cookie: ${get_extract_data(cookie)}
+  testcase:
+    - case_name: 货主（托运人）下订单
+      json:
+        orderInfo:
+          template: define
+          urgentType: 2
+          cusName: 总仓
+          orderType: 1
+          charter: 2
+          planType: 1
+          transStartTime: "2023-07-14 10:37:02"
+          transEndTime: "2023-07-16 10:38:58"
+          orderMark: 货主下单
+          cusId: "1661242770195464193"
+        orderCapacityList:
+          - materialCategoryId: ${get_extract_data_list(material,0)}
+            materialCategory: 粮食
+            materialName: 小麦
+            materialUnit: KG
+            materialUnitId: "1660891402561581058"
+            settlementUnit: KG
+            syncMaterialId: 4
+            sendAdrName: 长宁县五谷粮食购销有限责任公司
+      validation:
+        - contains: {'message':'操作成功','jsonPath':'$.message'}
+      extract:
+        orderId: $.orderNo
