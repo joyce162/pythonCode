@@ -49,7 +49,6 @@ class BaseRequestUtil(object):
         return data
 
     def specification_yaml(self, baseInfo, testcase):
-
         # 添加异常，不然非调用接口报错不会提示fail
         try:
             host = self.oc.get_option_from_env('host')
@@ -91,8 +90,6 @@ class BaseRequestUtil(object):
                 **testcase)
             res_txt = res.text
             allure.attach(res_txt, f'接口响应: {res_txt}', allure.attachment_type.TEXT)
-
-
 
             if extract != None and extract != 'None':
                 self.extract_data(extract, res_txt)

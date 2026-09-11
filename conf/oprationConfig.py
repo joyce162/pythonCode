@@ -22,3 +22,6 @@ class OprationConfig:
 
     def get_option_from_database(self,option):
         return self.get_section_for_data('MYSQL',option)
+
+    def get_option_from_redis(self,option):
+        return self.get_section_for_data('REDIS',option)

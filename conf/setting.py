@@ -11,7 +11,8 @@ STREAM_LOG_LEVEL = logging.DEBUG
 FILE_PATH = {
     'extract': os.path.join(DIR_PATH, 'extract.yml'),
     'conf': os.path.join(DIR_PATH, 'conf','conf.ini'),
-    'log': os.path.join(DIR_PATH, 'log')
+    'log': os.path.join(DIR_PATH, 'log'),
+    'EXCEL': os.path.join(DIR_PATH, 'data/接口信息.xls')
 }
 
 print(FILE_PATH['extract'])
